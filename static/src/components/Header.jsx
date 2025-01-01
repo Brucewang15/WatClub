@@ -14,6 +14,7 @@ const Header = () => {
     const handleRedirectMainPage = () => {
         navigate('/')
     }
+    console.log(process.env.WATCLUB_API, 'watclub api')
 
     const [userPfp, setUserPfp] = useState(null);
     const [dropdownVisible, setDropdownVisible] = useState(false);
@@ -66,6 +67,7 @@ const Header = () => {
     const toggleDropdown = () => {
         setDropdownVisible(!dropdownVisible);
     };
+
 
 
     return (
