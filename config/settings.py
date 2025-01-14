@@ -102,7 +102,6 @@ CORS_ALLOW_CREDENTIALS = True
 
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",  # Frontend origin
-    ""
 ]
 
 CSRF_TRUSTED_ORIGINS = [
