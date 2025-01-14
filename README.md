@@ -1,18 +1,30 @@
-﻿﻿# WatClub. UWFlow but for clubs!
+# Watclub
 
-## Our vision
+WatClub is a React + Django web application that helps users find and review clubs, design teams, and intramurals at the University of Waterloo.
 
-- Club Ratings
-- Club Reccommendations, with AI powered search engine
-- Including Design teams, Intramurals, Sports and Organizations 
-- Make getting involved on campus easier for everyone!
+## Features
+- Browse organizations and filter them by rating, tags, or type (Clubs, Design Teams, Intramurals).
+- View individual organization profiles, leave comments, and upvote/downvote others' feedback.
+- Bookmark favorite organizations for later reference.
 
-## Our mission
+## Technology Stack
+- Frontend: React (with Redux)
+- Backend: Django (RESTful API)
+- Database: SQLite
+(configure in Django settings)
 
-**WatClub**: UW Flow, but for clubs! Where you can see the ratings and schedules for club events, sports, intramurals, and organizations, to get fully involved on campus! Powered by our AI search engine so you can freely search clubs, wwith reviews from our own students here at UW!
+## Installation & Setup
+1. Clone the repository.  
+2. Install Python dependencies:  
+   - pip install -r requirements.txt  
+3. Set up the React frontend:  
+   - cd static  
+   - npm install  
+4. Run the server:  
+   - python manage.py runserver  
+   - npm start (in a separate terminal for the frontend)
 
-<<<<<<< HEAD
-WatClub. Making getting involved on campus easier for everyone.
-=======
-WatClub. Making getting involved on campus easier for everyone. 
->>>>>>> d38a2e77c096246498fb17fdb845cfe9ea1f18f3
+## Contributing
+1. Create a new branch for your feature/fix.  
+2. Commit and push your changes.  
+3. Open a pull request for review.

@@ -9,12 +9,12 @@ const Search = () => {
     const [userInput, setUserInput] = useState("");
     const [clicked, setClicked] = useState(false);
     const [suggestions, setSuggestions] = useState([]);
-
+    const apiBase = process.env.REACT_APP_WATCLUB_API;
     const navigate = useNavigate();
 
     const getPotentialClub = async (query) => {
         try {
-            const response = await fetch("http://127.0.0.1:8000/organizations/get_potential_club_data", {
+            const response = await fetch(`${apiBase}/organizations/get_potential_club_data`, {
                 method: "POST",
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ query: query })

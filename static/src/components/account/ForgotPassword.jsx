@@ -12,10 +12,10 @@ const ForgotPassword = () => {
     const [errorMessage, setErrorMessage] = useState('');
     const [errorType, setErrorType] = useState('')
 
-
+    const apiBase = process.env.REACT_APP_WATCLUB_API;
     const submitEmail = async () => {
         try {
-            const response = await fetch('http://127.0.0.1:8000/users/forgotPassword/', {
+            const response = await fetch(`${apiBase}/users/forgotPassword/`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

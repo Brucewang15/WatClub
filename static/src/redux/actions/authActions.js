@@ -7,13 +7,13 @@ import {
     LOGOUT_SUCCESS,
     LOGOUT_FAIL,
 } from "./types";
-
+const apiBase = process.env.REACT_APP_WATCLUB_API;
 export const logout = () => async dispatch => {
     try {
         const refreshToken = localStorage.getItem('refresh_token');
         console.log(refreshToken, 'refreshToken')
-
-        const response = await fetch('http://127.0.0.1:8000/users/logout/', {
+        const apiBase = process.env.REACT_APP_WATCLUB_API;
+        const response = await fetch(`${apiBase}/users/logout/`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -45,8 +45,9 @@ export const logout = () => async dispatch => {
 
 export const confirmEmail = (email, password, code) => async dispatch => {
     try {
+        const apiBase = process.env.REACT_APP_WATCLUB_API;
         const response = await fetch(
-            'http://127.0.0.1:8000/users/verify-email/',
+            `${apiBase}/users/verify-email/`,
             {
                 method: 'POST',
                 headers: {
@@ -59,10 +60,11 @@ export const confirmEmail = (email, password, code) => async dispatch => {
             }
         );
         if (response.ok) {
+            const apiBase = process.env.REACT_APP_WATCLUB_API;
             const data = await response.json();
             if (data.success) {
                 console.log('Email verified successfully');
-                const tokenResponse = await fetch('http://127.0.0.1:8000/api/token/', {
+                const tokenResponse = await fetch(`${apiBase}/api/token/`, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
@@ -126,7 +128,8 @@ export const loadUser = () => dispatch => {
 export const login = (email, password) => async dispatch => {
     try {
         console.log('in login')
-        const response = await fetch('http://127.0.0.1:8000/users/login/', {
+        const apiBase = process.env.REACT_APP_WATCLUB_API;
+        const response = await fetch(`${apiBase}/users/login/`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ email, password }),  // Send credentials in the body
@@ -135,7 +138,8 @@ export const login = (email, password) => async dispatch => {
             const data = await response.json();
             if (data.success) {
                 console.log('email password correct')
-                const tokenResponse = await fetch('http://127.0.0.1:8000/api/token/', {
+                const apiBase = process.env.REACT_APP_WATCLUB_API;
+                const tokenResponse = await fetch(`${apiBase}/api/token/`, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',

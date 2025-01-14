@@ -32,9 +32,11 @@ const MainPage = () => {
 
     useEffect(() => {
         const get_club_data = async () => {
+            const apiBase = process.env.REACT_APP_WATCLUB_API;
+            console.log(apiBase, 'apiBase get_club_data');
             setIsLoading(true); // Start loading
             try {
-                const response = await fetch('http://127.0.0.1:8000/organizations/get_club_data/', {
+                const response = await fetch(`${apiBase}/organizations/get_club_data/`, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',

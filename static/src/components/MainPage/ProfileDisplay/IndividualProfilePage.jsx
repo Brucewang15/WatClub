@@ -23,6 +23,8 @@ const IndividualProfilePage = () => {
     const auth = useSelector((state) => state.auth);
     const { isAuthenticated, accessToken } = auth;
 
+    const apiBase = process.env.REACT_APP_WATCLUB_API;
+
     useEffect(() => {
         if (isAuthenticated && accessToken) {
             try {
@@ -40,7 +42,7 @@ const IndividualProfilePage = () => {
     // Fetch all comments from the backend
     const getAllCommentsDB = async () => {
         try {
-            const response = await fetch('http://127.0.0.1:8000/comments/get_comments/', {
+            const response = await fetch(`${apiBase}/comments/get_comments/`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ org_id: orgId }),
@@ -55,26 +57,10 @@ const IndividualProfilePage = () => {
         }
     };
 
-    // getClubData = async () => {
-    //     try {
-    //         const response = await fetch('http://127.0.0.1:8000/organizations/get_individual_club_data/', {
-    //             method: 'POST',
-    //             headers: { 'Content-Type': 'application/json' },
-    //             body: JSON.stringify({ org_id: orgId }),
-    //         });
-    //         if (response.ok) {
-    //             const data = await response.json();
-    //             setClubInfo(data);
-    //         }
-    //     } catch (err) {
-    //         console.log('error', err);
-    //     }
-    // };
-
     const getUserData = async (userId) => {
         console.log("Fetching user data for userId:", userId);
         try{
-            const response = await fetch('http://127.0.0.1:8000/users/get_user/', {
+            const response = await fetch(`${apiBase}/users/get_user/`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ user_id: userId }),
@@ -91,7 +77,7 @@ const IndividualProfilePage = () => {
     const getBookmarkData = async (userId) => {
         console.log("Fetching Bookmark data for userId:", userId);
         try{
-            const response = await fetch('http://127.0.0.1:8000/users/get_bookmark_info/', {
+            const response = await fetch(`${apiBase}/users/get_bookmark_info/`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ user_id: userId }),
@@ -105,17 +91,6 @@ const IndividualProfilePage = () => {
         }
     };
 
-    // const getClubData = async () => {
-    //     const response = await fetch('http://127.0.0.1:8000/organizations/get_individual_club_data', {
-    //         method: 'POST',
-    //         headers: { 'Content-Type': 'application/json' },
-    //         body: JSON.stringify({ org_id: orgId }),
-    //     });
-    //     if (response.ok) {
-    //         const data = await response.json();
-    //         setClubInfo(data);
-    //     }
-    // };
 
 
     // useEffect(() => {

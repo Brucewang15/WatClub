@@ -23,7 +23,7 @@ const IndividualClubComments = ({
     const [allCommentsRatings, setAllCommentsRatings] = useState([]);
     const [commentRatings, setCommentRatings] = useState({});
 
-    
+    const apiBase = process.env.REACT_APP_WATCLUB_API;
 
     // Fetch user comment ratings when userId changes
     useEffect(() => {
@@ -37,7 +37,7 @@ const IndividualClubComments = ({
     // Fetch user ratings for comments
     const fetchUserCommentRatings = async () => {
         try {
-            const response = await fetch('http://127.0.0.1:8000/comments/get_user_ratings/', {
+            const response = await fetch(`${apiBase}/comments/get_user_ratings/`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ user_id: userId, org_id: orgId }),
@@ -63,7 +63,7 @@ const IndividualClubComments = ({
         setCommentRatings(newRatings);
 
         try {
-            const response = await fetch('http://127.0.0.1:8000/comments/rate_comment/', {
+            const response = await fetch(`${apiBase}/comments/rate_comment/`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ 

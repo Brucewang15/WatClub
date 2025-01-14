@@ -7,11 +7,11 @@ const CommentPopUp = ( {userId, setCommentState, onCommentPosted} ) => {
     const [comment, setComment] = useState("");
     const [stars, setStars] = useState(0);
 
-
+    const apiBase = process.env.REACT_APP_WATCLUB_API;
     const postComment = async () => {
         console.log(orgId, comment, userId, stars)
         try {
-            const response = await fetch('http://127.0.0.1:8000/comments/post_comment/', {
+            const response = await fetch(`${apiBase}/comments/post_comment/`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

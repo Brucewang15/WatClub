@@ -6,10 +6,11 @@ import "./Bookmark.css"; // Assuming you have a CSS file for styling
 const Bookmark = ({ org_id, user_id }) => {
 
     const [bookmarked, setBookmarked] = useState(Boolean)
+    const apiBase = process.env.REACT_APP_WATCLUB_API;
 
     const getBookmark = async () => {
         console.log(org_id, user_id)
-        const response = await fetch('http://127.0.0.1:8000/users/get_bookmark_state/', {
+        const response = await fetch(`${apiBase}/users/get_bookmark_state/`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
@@ -32,7 +33,7 @@ const Bookmark = ({ org_id, user_id }) => {
 
     const changeBookmark = async ( bookmarked ) => {
         console.log(bookmarked, user_id)
-        const response = await fetch('http://127.0.0.1:8000/users/change_bookmark/', {
+        const response = await fetch(`${apiBase}/users/change_bookmark/`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json'},
             body: JSON.stringify({

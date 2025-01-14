@@ -18,7 +18,7 @@ const Header = () => {
 
     const [userPfp, setUserPfp] = useState(null);
     const [dropdownVisible, setDropdownVisible] = useState(false);
-
+    const apiBase = process.env.REACT_APP_WATCLUB_API;
 
     const auth = useSelector(state => state.auth)
     const { isAuthenticated, accessToken } = auth;
@@ -29,7 +29,7 @@ const Header = () => {
             const tokenPayload = JSON.parse(atob(arrayToken[1]));
             const userId = tokenPayload.user_id;
 
-            const response = await fetch(`http://127.0.0.1:8000/users/get_user_pfp/`, {
+            const response = await fetch(`${apiBase}/users/get_user_pfp/`, {
                 method: 'POST',
                 headers: {
                     Authorization: `Bearer ${accessToken}`,
