@@ -47,11 +47,12 @@ const IndividualClubPage = () => {
         checkAuth()
     }, [isAuthenticated, accessToken, orgId]);
 
+    const apiBase = process.env.REACT_APP_WATCLUB_API;
 
     // Fetch all comments from the backend
     const getAllCommentsDB = async ( user_id ) => {
         try {
-            const response = await fetch('http://127.0.0.1:8000/comments/get_comments/', {
+            const response = await fetch(`${apiBase}/comments/get_comments/`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
@@ -87,7 +88,7 @@ const IndividualClubPage = () => {
 
     // Function to get club data
     const getClubData = async () => {
-        const response = await fetch('http://127.0.0.1:8000/organizations/get_individual_club_data', {
+        const response = await fetch(`${apiBase}/organizations/get_individual_club_data`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ org_id: orgId }),

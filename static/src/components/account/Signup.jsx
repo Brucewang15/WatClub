@@ -12,7 +12,7 @@ const Signup = () => {
     const [confirmPassword, setConfirmPassword] = useState('');
     const [emailTaken, setEmailTaken] = useState(false);
     const [warning, setWarning] = useState([false, "", ""])
-
+    const apiBase = process.env.REACT_APP_WATCLUB_API;
     // State variables for email confirmation
     const [isEmailSent, setIsEmailSent] = useState(false);
 
@@ -67,7 +67,7 @@ const Signup = () => {
 
         try {
             const response = await fetch(
-                'http://127.0.0.1:8000/users/confirmationEmail/',
+                `${apiBase}/users/confirmationEmail/`,
                 {
                     method: 'POST',
                     headers: {

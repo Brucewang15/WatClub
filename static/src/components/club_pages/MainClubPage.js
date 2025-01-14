@@ -12,11 +12,12 @@ const MainClubPage = () => {
         setStars(event.target.value)
     }
 
+    const apiBase = process.env.REACT_APP_WATCLUB_API;
     const handleSubmit = async () => {
 
         console.log(email, comment, stars)
         try {
-            const response = await fetch('http://127.0.0.1:8000/comments/post_comment/', {
+            const response = await fetch(`${apiBase}/comments/post_comment/`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -44,7 +45,7 @@ const MainClubPage = () => {
 
         const get_club_data = async () => {
             try {
-                const response = await fetch('http://127.0.0.1:8000/comments/get_comments/', {
+                const response = await fetch(`${apiBase}/comments/get_comments/`, {
                     method: 'GET',
                     headers: {
                         'Content-Type': 'application/json',
