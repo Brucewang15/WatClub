@@ -9,6 +9,9 @@ const Background = (props) => {
 
     const [searchText, setSearchText] = useState("Displaying all organizations")
 
+
+
+    
     useEffect(() => {
         if (prompt == undefined) {
             setSearchText("Displaying all organizations");
