@@ -1,6 +1,11 @@
 # Watclub
 
+
+https://github.com/user-attachments/assets/35333d3f-7b9f-4a2f-9fee-2bf7adeb0ba0
+
+
 WatClub is a React + Django web application that helps users find and review clubs, design teams, and intramurals at the University of Waterloo.
+
 
 ## Features
 - Browse organizations and filter them by rating, tags, or type (Clubs, Design Teams, Intramurals).
